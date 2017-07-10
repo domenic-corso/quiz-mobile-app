@@ -14,9 +14,9 @@ public class Quiz {
     private String createdAt;
     private String title;
     private String description;
-    private List<Question> quizQuestions;
+    private List<Question> questions;
 
-    public Quiz(String author, String createdAt, String title, String description){
+    public Quiz(String author, String createdAt, String title, String description) {
         this.author = author;
         this.createdAt = createdAt;
         this.title = title;
@@ -40,6 +40,14 @@ public class Quiz {
     }
 
     public int numberOfQuestions(){
-        return quizQuestions.size();
+        return questions.size();
+    }
+
+    public void addQuestion(Question question) {
+        questions.add(question);
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
     }
 }
