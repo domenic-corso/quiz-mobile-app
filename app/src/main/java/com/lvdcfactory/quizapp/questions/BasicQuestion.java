@@ -7,17 +7,23 @@ package com.lvdcfactory.quizapp.questions;
 public class BasicQuestion implements Question {
 
         private String answerText;
-        private String question;
+        private String questionText;
 
         final int ACCURACY_THRESHOLD = 70;
 
-        public BasicQuestion(String questionText) {
-            setQuestion(questionText);
+        public BasicQuestion(String questionText, String answerText) {
+            this.questionText = questionText;
+            this.answerText = answerText;
         }
 
         @Override
-        public String getQuestion() {
-            return question;
+        public String toString(){
+            return questionText + Question.SUFFIX;
+        }
+
+        @Override
+        public String getQuestionText() {
+            return questionText;
         }
 
         @Override
@@ -25,25 +31,12 @@ public class BasicQuestion implements Question {
             return answerText;
         }
 
-        public int getAccuracy(String givenAnswer){
-            return 0;
-        }
-
-        @Override
-        public void setQuestion(String question) {
-            this.question = question;
-        }
-
-        public void setAnswerText(String answerText){
-            this.answerText = answerText;
-        }
-
         @Override
         public boolean isCorrect(String givenAnswer){
             return true;
         }
 
-        public String toString(){
-            return question + Question.SUFFIX;
-        }
+        public int getAccuracy(String givenAnswer){
+        return 0;
+    }
 }

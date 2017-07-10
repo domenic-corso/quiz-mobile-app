@@ -8,8 +8,7 @@ public interface Question {
 
     public final String SUFFIX = "?";
 
-    void setQuestion(String questionText);
-    String getQuestion();
+    String getQuestionText();
     String getAnswerText();
     boolean isCorrect(String givenAnswer);
 
