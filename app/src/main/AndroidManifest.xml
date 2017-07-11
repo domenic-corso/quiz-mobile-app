@@ -11,18 +11,19 @@
         <activity
             android:name=".Menu"
             android:label="@string/menu_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".CreateQuiz"
             android:label="@string/create_quiz_name"></activity>
         <activity
             android:name=".AddQuestion"
-            android:label="Add Question"></activity>
+            android:label="Add Question">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

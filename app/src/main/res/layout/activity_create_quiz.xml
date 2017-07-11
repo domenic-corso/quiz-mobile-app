@@ -9,44 +9,40 @@
     tools:context="com.lvdcfactory.quizapp.CreateQuiz">
 
     <TextView
-        android:id="@+id/createQuiz_titleTextView"
         android:layout_width="52dp"
         android:layout_height="27dp"
         android:text="Title" />
 
     <EditText
-        android:id="@+id/createQuiz_titleEditText"
+        android:id="@+id/createQuiz_editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Quiz Title" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/createQuiz_descTextView"
         android:layout_width="85dp"
         android:layout_height="27dp"
-        android:text="Description"/>
+        android:layout_marginTop="10dp"
+        android:text="Description" />
 
     <EditText
-        android:id="@+id/createQuiz_descEditText"
+        android:id="@+id/createQuiz_editTextDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:hint="Enter Quiz Description" />
+        android:hint="Enter Quiz Description"
+        android:inputType="textMultiLine" />
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/createQuiz_authorTextView"
         android:layout_width="85dp"
         android:layout_height="27dp"
-        android:text="Author"/>
+        android:layout_marginTop="10dp"
+        android:text="Author" />
 
     <EditText
-        android:id="@+id/createQuiz_authorEditText"
+        android:id="@+id/createQuiz_editTextAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name"
-        />
+        android:hint="Enter Name" />
 
     <Button
         android:id="@+id/createQuiz_btnCreateQuizContinue"
