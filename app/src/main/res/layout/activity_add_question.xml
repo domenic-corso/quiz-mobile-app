@@ -37,18 +37,47 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="Question"
         android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/addQuestion_editTextQuestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="0.75"
+        android:gravity="top"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <LinearLayout
+        android:id="@+id/addQuestion_layout_basicQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Answer"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/addQuestion_editTextBasicQuestionAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/addQuestion_layout_bottomButtons"
