@@ -9,6 +9,7 @@
     tools:context="com.lvdcfactory.quizapp.QuizSummary">
 
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="52dp"
         android:layout_height="27dp"
         android:text="Title" />
@@ -16,9 +17,11 @@
     <TextView
         android:id="@+id/quizSummary_textViewTitle"
         android:layout_width="match_parent"
-        android:layout_height="27dp" />
+        android:layout_height="27dp"
+        android:background="@drawable/border" />
 
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="75dp"
         android:layout_height="27dp"
         android:text="Description" />
@@ -26,9 +29,11 @@
     <TextView
         android:id="@+id/quizSummary_textViewDesc"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:background="@drawable/border" />
 
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="52dp"
         android:layout_height="27dp"
         android:text="Author" />
@@ -36,7 +41,8 @@
     <TextView
         android:id="@+id/quizSummary_textViewAuthor"
         android:layout_width="match_parent"
-        android:layout_height="27dp" />
+        android:layout_height="27dp"
+        android:background="@drawable/border" />
 
     <LinearLayout
         android:id="@+id/quizSummary_layout_bottomButtons"
