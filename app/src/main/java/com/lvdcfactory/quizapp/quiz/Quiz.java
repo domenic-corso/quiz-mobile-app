@@ -3,6 +3,7 @@ package com.lvdcfactory.quizapp.quiz;
 import com.lvdcfactory.quizapp.questions.Question;
 
 import java.util.List;
+import java.util.Date;
 
 /**
  * Created by LU-VUONG on 10-Jul-17.
@@ -15,16 +16,16 @@ public class Quiz {
     private String description;
     private List<Question> questions;
 
-    /* Stored as seconds since Epoch */
-    private int createdAt;
+    /* Stored as milliseconds since Epoch */
+    private long createdAt;
 
     public Quiz(String author, String title, String description) {
         this.author = author;
         this.title = title;
         this.description = description;
 
-        // TODO Automatically find time since Epoch when instantiated
-        this.createdAt = 0;
+        /* Finds number of milliseconds since Epoch */
+        createdAt = new Date().getTime();
     }
 
     public String getAuthor(){
@@ -32,8 +33,8 @@ public class Quiz {
     }
 
     public String getCreatedAt() {
-        // TODO Convert Epoch time to string and return
-        return "January 1, 1970";
+        Date date = new Date(createdAt);
+        return date.toString();
     }
 
     public String getTitle(){
