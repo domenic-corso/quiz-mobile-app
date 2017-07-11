@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class CreateQuiz extends AppCompatActivity {
 
-    Button createQuiz_btnCreateQuizContinue;
+    Button btnContinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,11 @@ public class CreateQuiz extends AppCompatActivity {
     }
 
     private void findViews() {
-        createQuiz_btnCreateQuizContinue = (Button) findViewById(R.id.createQuiz_btnCreateQuizContinue);
+        btnContinue = (Button) findViewById(R.id.createQuiz_btnCreateQuizContinue);
     }
 
     private void addListeners(){
-        createQuiz_btnCreateQuizContinue.setOnClickListener(new View.OnClickListener() {
+        btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("CreateQuiz", "Continue Button Clicked");

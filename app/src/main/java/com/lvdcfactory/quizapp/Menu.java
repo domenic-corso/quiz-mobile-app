@@ -19,10 +19,6 @@ public class Menu extends AppCompatActivity {
 
         findViews();
         addListeners();
-
-        Quiz myQuiz = new Quiz("Domenic Corso", "Programming", "Test your knowledge");
-
-        Log.i("Menu", myQuiz.getCreatedAt());
     }
 
     private void findViews() {
