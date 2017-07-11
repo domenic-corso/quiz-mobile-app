@@ -11,16 +11,20 @@ import java.util.List;
 public class Quiz {
 
     private String author;
-    private String createdAt;
     private String title;
     private String description;
     private List<Question> questions;
 
-    public Quiz(String author, String createdAt, String title, String description) {
+    /* Stored as seconds since Epoch */
+    private int createdAt;
+
+    public Quiz(String author, String title, String description) {
         this.author = author;
-        this.createdAt = createdAt;
         this.title = title;
         this.description = description;
+
+        // TODO Automatically find time since Epoch when instantiated
+        this.createdAt = 0;
     }
 
     public String getAuthor(){
@@ -28,7 +32,8 @@ public class Quiz {
     }
 
     public String getCreatedAt() {
-        return createdAt;
+        // TODO Convert Epoch time to string and return
+        return "January 1, 1970";
     }
 
     public String getTitle(){
