@@ -16,7 +16,8 @@
             android:label="@string/create_quiz_name" />
         <activity
             android:name=".AddQuestion"
-            android:label="Add Question">
+            android:label="Add Question"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
