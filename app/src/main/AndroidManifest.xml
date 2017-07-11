@@ -15,6 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- TODO Change ActionBar Name for CreateQuiz -->
+        <activity android:name=".CreateQuiz" android:label="@string/create_quiz_name">
+
+        </activity>
     </application>
 
 </manifest>
