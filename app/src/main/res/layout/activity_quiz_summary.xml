@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context="com.lvdcfactory.quizapp.QuizSummary">
+
+    <TextView
+        android:layout_width="52dp"
+        android:layout_height="27dp"
+        android:text="Title" />
+
+    <TextView
+        android:id="@+id/quizSummary_textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="27dp" />
+
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="27dp"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/quizSummary_textViewDesc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:layout_width="52dp"
+        android:layout_height="27dp"
+        android:text="Author" />
+
+    <TextView
+        android:id="@+id/quizSummary_textViewAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="27dp" />
+
+    <LinearLayout
+        android:id="@+id/quizSummary_layout_bottomButtons"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/quizSummary_btnStartTest"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.82"
+            android:background="#99D5CA"
+            android:text="Start Test" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47" />
+
+        <Button
+            android:id="@+id/quizSummary_btnExport"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#99D5CA"
+            android:text="Export" />
+
+    </LinearLayout>
+
+</android.widget.LinearLayout>

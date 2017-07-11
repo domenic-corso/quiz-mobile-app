@@ -10,11 +10,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Menu"
-            android:label="@string/menu_name">
-        </activity>
+            android:label="@string/menu_name"></activity>
         <activity
             android:name=".CreateQuiz"
-            android:label="@string/create_quiz_name"></activity>
+            android:label="@string/create_quiz_name" />
         <activity
             android:name=".AddQuestion"
             android:label="Add Question">
@@ -24,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".QuizSummary"
+            android:label="Quiz Summary"></activity>
     </application>
 
 </manifest>
