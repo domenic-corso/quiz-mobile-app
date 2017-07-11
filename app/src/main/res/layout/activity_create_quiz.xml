@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@string/layout_margin"
+    tools:context="com.lvdcfactory.quizapp.CreateQuiz">
+
+    <TextView
+        android:id="@+id/createQuiz_titleTextView"
+        android:layout_width="52dp"
+        android:layout_height="27dp"
+        android:text="Title" />
+
+    <EditText
+        android:id="@+id/createQuiz_titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Quiz Title" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/createQuiz_descTextView"
+        android:layout_width="85dp"
+        android:layout_height="27dp"
+        android:text="Description"/>
+
+    <EditText
+        android:id="@+id/createQuiz_descEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:hint="Enter Quiz Description" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/createQuiz_authorTextView"
+        android:layout_width="85dp"
+        android:layout_height="27dp"
+        android:text="Author"/>
+
+    <EditText
+        android:id="@+id/createQuiz_authorEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        />
+
+    <Button
+        android:id="@+id/createQuiz_btnCreateQuizContinue"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99D5CA"
+        android:text="Continue"/>
+
+</android.widget.LinearLayout>
