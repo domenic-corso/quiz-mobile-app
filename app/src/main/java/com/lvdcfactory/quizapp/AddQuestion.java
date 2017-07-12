@@ -134,7 +134,7 @@ public class AddQuestion extends AppCompatActivity {
         ViewGroup possibleAnswerLayout = (ViewGroup) inflater.inflate(R.layout.possible_answer_layout, null);
 
         /* Create a new wrapper for the layout */
-        PossibleAnswerLayoutWrapper wrapper = new PossibleAnswerLayoutWrapper(possibleAnswerLayout);
+        PossibleAnswerLayoutWrapper wrapper = new PossibleAnswerLayoutWrapper(this, possibleAnswerLayout);
 
         /* Add to beginning of list of wrappers */
         possibleAnswerLayoutWrappers.add(0, wrapper);
@@ -142,4 +142,13 @@ public class AddQuestion extends AppCompatActivity {
         /* Add to beginning of the container (with index 0) */
         possibleAnswerLayoutsContainer.addView(wrapper.getParent(), 0);
     }
+
+    public void removePossibleAnswerLayout(PossibleAnswerLayoutWrapper wrapper) {
+        possibleAnswerLayoutsContainer.removeView(wrapper.getParent());
+
+        possibleAnswerLayoutWrappers.remove(wrapper);
+    }
+
+
+
 }
