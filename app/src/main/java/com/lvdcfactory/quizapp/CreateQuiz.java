@@ -1,5 +1,6 @@
 package com.lvdcfactory.quizapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,7 @@ import android.widget.Button;
 
 public class CreateQuiz extends AppCompatActivity {
 
-    Button btnContinue;
+    private Button btnContinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,19 +17,20 @@ public class CreateQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_create_quiz);
 
         findViews();
-        addListeners();
+
+        btnContinue.setOnClickListener(new ContinueButtonClicked());
+
     }
 
     private void findViews() {
         btnContinue = (Button) findViewById(R.id.createQuiz_btnCreateQuizContinue);
     }
 
-    private void addListeners(){
-        btnContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("CreateQuiz", "Continue Button Clicked");
-            }
-        });
+    class ContinueButtonClicked implements View.OnClickListener {
+        public void onClick(View view){
+            Log.i("Continue Button", "Continue Button Clicked");
+            //startActivity(new Intent(CreateQuiz.this, AddQuestion.class));
+        }
     }
+
 }
