@@ -21,7 +21,6 @@ public class CreateQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_create_quiz);
 
         findViews();
-
         addListeners();
 
     }
@@ -33,7 +32,7 @@ public class CreateQuiz extends AppCompatActivity {
         quizAuthor = (EditText) findViewById(R.id.createQuiz_editTextAuthor);
     }
 
-    private void addListeners(){
+    private void addListeners() {
         btnContinue.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -42,7 +41,7 @@ public class CreateQuiz extends AppCompatActivity {
         });
     }
 
-    private void showAddQuestionActivity(){
+    private void showAddQuestionActivity() {
         String author = quizAuthor.getText().toString();
         String title = quizTitle.getText().toString();
         String description = quizDescription.getText().toString();

@@ -2,6 +2,8 @@ package com.lvdcfactory.quizapp.quiz;
 
 import com.lvdcfactory.quizapp.questions.Question;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
@@ -26,6 +28,9 @@ public class Quiz implements java.io.Serializable {
 
         /* Finds number of milliseconds since Epoch */
         createdAt = new Date().getTime();
+
+        /* Create empty array list ready for 'addQuestion()' method */
+        questions = new ArrayList<>();
     }
 
     public String getAuthor(){
