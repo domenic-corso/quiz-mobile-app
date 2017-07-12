@@ -42,7 +42,7 @@ public class CreateQuiz extends AppCompatActivity {
     }
 
     private void showAddQuestionActivity() {
-        if(checkEmptyString(quizTitle) == true && checkEmptyString(quizDescription) == true && checkEmptyString(quizAuthor) == true) {
+        if(isEditTextValid(quizTitle) && isEditTextValid(quizDescription) && isEditTextValid(quizAuthor)) {
             String author = quizAuthor.getText().toString();
             String title = quizTitle.getText().toString();
             String description = quizDescription.getText().toString();
@@ -55,8 +55,8 @@ public class CreateQuiz extends AppCompatActivity {
         }
     }
 
-    private boolean checkEmptyString(EditText input){
-        if(input.getText().toString().length() == 0){
+    private boolean isEditTextValid(EditText input){
+        if(input.getText().toString().trim().length() == 0){
             input.setError("Field cannot be empty");
             return false;
         }else{
