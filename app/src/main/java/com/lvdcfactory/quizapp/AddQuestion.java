@@ -1,6 +1,7 @@
 package com.lvdcfactory.quizapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,11 @@ public class AddQuestion extends AppCompatActivity {
 
     private Button btnBasicQuestion, btnMultipleChoiceQuestion;
     private ViewGroup basicQuestionLayout, multipleChoiceQuestionLayout;
+    enum ActiveQuestionType {
+        BASIC,
+        MULTIPLE_CHOICE,
+        NONE
+    }
 
     private List<PossibleAnswerLayoutWrapper> possibleAnswerLayoutWrappers;
     private ViewGroup possibleAnswerLayoutsContainer;
@@ -48,6 +54,9 @@ public class AddQuestion extends AppCompatActivity {
         addEventListeners();
 
         possibleAnswerLayoutWrappers = new ArrayList<>();
+
+        /* Show the basic question layout by default */
+        btnBasicQuestion.callOnClick();
     }
 
     private void findViews() {
@@ -66,6 +75,7 @@ public class AddQuestion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showQuestionTypeLayout(basicQuestionLayout);
+                highlightQuestionTypeButton((Button) view);
             }
         });
 
@@ -73,6 +83,7 @@ public class AddQuestion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showQuestionTypeLayout(multipleChoiceQuestionLayout);
+                highlightQuestionTypeButton((Button) view);
             }
         });
 
@@ -84,12 +95,37 @@ public class AddQuestion extends AppCompatActivity {
         });
     }
 
+
+    private ActiveQuestionType activeQuestionType() {
+        if (basicQuestionLayout.getVisibility() == View.VISIBLE) {
+            return ActiveQuestionType.BASIC;
+        }
+
+        if (multipleChoiceQuestionLayout.getVisibility() == View.VISIBLE) {
+            return ActiveQuestionType.MULTIPLE_CHOICE;
+        }
+
+        return ActiveQuestionType.NONE;
+    }
+
     /* Switches between the user input modes for a basic question or a multiple choice question */
     private void showQuestionTypeLayout(ViewGroup layout) {
         basicQuestionLayout.setVisibility(View.GONE);
         multipleChoiceQuestionLayout.setVisibility(View.GONE);
 
         layout.setVisibility(View.VISIBLE);
+    }
+
+    /* Highlights whichever question type button is selected by changing the background
+     * color of the buttons */
+    private void highlightQuestionTypeButton(Button typeButton) {
+        int UNSELECTED = Color.rgb(230, 230, 230);
+        int SELECTED = Color.rgb(210, 210, 210);
+
+        btnBasicQuestion.setBackgroundColor(UNSELECTED);
+        btnMultipleChoiceQuestion.setBackgroundColor(UNSELECTED);
+
+        typeButton.setBackgroundColor(SELECTED);
     }
 
     private void addPossibleAnswerLayout() {

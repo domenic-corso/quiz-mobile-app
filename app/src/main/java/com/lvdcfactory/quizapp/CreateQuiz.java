@@ -42,7 +42,9 @@ public class CreateQuiz extends AppCompatActivity {
     }
 
     private void showAddQuestionActivity() {
-        if(isEditTextValid(quizTitle) && isEditTextValid(quizDescription) && isEditTextValid(quizAuthor)) {
+        if (isEditTextValid(quizTitle)
+                && isEditTextValid(quizDescription)
+                && isEditTextValid(quizAuthor)) {
             String author = quizAuthor.getText().toString();
             String title = quizTitle.getText().toString();
             String description = quizDescription.getText().toString();

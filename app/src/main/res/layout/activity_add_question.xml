@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.36"
             android:text="Basic"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.11"
             android:text="Multiple Choice"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -59,7 +59,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
