@@ -3,12 +3,12 @@ package com.lvdcfactory.quizapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
 import com.lvdcfactory.quizapp.quiz.Quiz;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class AddQuestion extends AppCompatActivity {
     private Button btnBasicQuestion, btnMultipleChoiceQuestion;
     private ViewGroup basicQuestionLayout, multipleChoiceQuestionLayout;
 
-    private List<ViewGroup> possibleAnswerLayouts;
+    private List<PossibleAnswerLayoutWrapper> possibleAnswerLayoutWrappers;
     private ViewGroup possibleAnswerLayoutsContainer;
     private Button btnAddPossibleAnswer;
 
@@ -47,7 +47,7 @@ public class AddQuestion extends AppCompatActivity {
         findViews();
         addEventListeners();
 
-        possibleAnswerLayouts = new ArrayList<>();
+        possibleAnswerLayoutWrappers = new ArrayList<>();
     }
 
     private void findViews() {
@@ -95,8 +95,15 @@ public class AddQuestion extends AppCompatActivity {
     private void addPossibleAnswerLayout() {
         /* Inflate a 'Possible Answer View' */
         LayoutInflater inflater = getLayoutInflater();
-        View possibleAnswerView = inflater.inflate(R.layout.possible_answer_view, null);
+        ViewGroup possibleAnswerLayout = (ViewGroup) inflater.inflate(R.layout.possible_answer_layout, null);
 
-        possibleAnswerLayoutsContainer.addView(possibleAnswerView, 0);
+        /* Create a new wrapper for the layout */
+        PossibleAnswerLayoutWrapper wrapper = new PossibleAnswerLayoutWrapper(possibleAnswerLayout);
+
+        /* Add to beginning of list of wrappers */
+        possibleAnswerLayoutWrappers.add(0, wrapper);
+
+        /* Add to beginning of the container (with index 0) */
+        possibleAnswerLayoutsContainer.addView(wrapper.getParent(), 0);
     }
 }

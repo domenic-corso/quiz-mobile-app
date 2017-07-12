@@ -55,12 +55,12 @@ public class CreateQuiz extends AppCompatActivity {
         }
     }
 
-    private boolean isEditTextValid(EditText input){
-        if(input.getText().toString().trim().length() == 0){
+    private boolean isEditTextValid(EditText input) {
+        if (input.getText().toString().trim().length() == 0) {
             input.setError("Field cannot be empty");
             return false;
-        }else{
-            return true;
         }
+
+        return true;
     }
 }
