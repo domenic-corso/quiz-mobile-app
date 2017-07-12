@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.lvdcfactory.quizapp.quiz.Quiz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddQuestion extends AppCompatActivity {
 
     private Quiz newlyCreatedQuiz;
@@ -18,7 +21,8 @@ public class AddQuestion extends AppCompatActivity {
     private Button btnBasicQuestion, btnMultipleChoiceQuestion;
     private ViewGroup basicQuestionLayout, multipleChoiceQuestionLayout;
 
-    private ViewGroup possibleAnswersContainer;
+    private List<ViewGroup> possibleAnswerLayouts;
+    private ViewGroup possibleAnswerLayoutsContainer;
     private Button btnAddPossibleAnswer;
 
     @Override
@@ -42,6 +46,8 @@ public class AddQuestion extends AppCompatActivity {
 
         findViews();
         addEventListeners();
+
+        possibleAnswerLayouts = new ArrayList<>();
     }
 
     private void findViews() {
@@ -52,7 +58,7 @@ public class AddQuestion extends AppCompatActivity {
         multipleChoiceQuestionLayout = (ViewGroup) findViewById(R.id.addQuestion_layout_multipleChoice);
 
         btnAddPossibleAnswer = (Button) findViewById(R.id.addQuestion_btnAddPossibleAnswer);
-        possibleAnswersContainer = (ViewGroup) findViewById(R.id.addQuestion_possibleAnswersContainer);
+        possibleAnswerLayoutsContainer = (ViewGroup) findViewById(R.id.addQuestion_possibleAnswersContainer);
     }
 
     private void addEventListeners() {
@@ -91,6 +97,6 @@ public class AddQuestion extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
         View possibleAnswerView = inflater.inflate(R.layout.possible_answer_view, null);
 
-        possibleAnswersContainer.addView(possibleAnswerView, 0);
+        possibleAnswerLayoutsContainer.addView(possibleAnswerView, 0);
     }
 }
