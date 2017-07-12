@@ -10,7 +10,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Menu"
-            android:label="@string/menu_name"></activity>
+            android:label="@string/menu_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
         <activity
             android:name=".CreateQuiz"
             android:label="@string/create_quiz_name" />
@@ -18,11 +23,6 @@
             android:name=".AddQuestion"
             android:label="Add Question"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".QuizSummary"

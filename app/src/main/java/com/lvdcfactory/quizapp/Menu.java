@@ -1,5 +1,6 @@
 package com.lvdcfactory.quizapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,7 @@ public class Menu extends AppCompatActivity {
         btnCreateQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("Menu", "'Create Quiz' Button Clicked");
+                startActivity(new Intent(getBaseContext(), CreateQuiz.class));
             }
         });
 
