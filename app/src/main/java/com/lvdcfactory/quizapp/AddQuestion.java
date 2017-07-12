@@ -3,7 +3,8 @@ package com.lvdcfactory.quizapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +17,9 @@ public class AddQuestion extends AppCompatActivity {
 
     private Button btnBasicQuestion, btnMultipleChoiceQuestion;
     private ViewGroup basicQuestionLayout, multipleChoiceQuestionLayout;
+
+    private ViewGroup possibleAnswersContainer;
+    private Button btnAddPossibleAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class AddQuestion extends AppCompatActivity {
 
         basicQuestionLayout = (ViewGroup) findViewById(R.id.addQuestion_layout_basicQuestion);
         multipleChoiceQuestionLayout = (ViewGroup) findViewById(R.id.addQuestion_layout_multipleChoice);
+
+        btnAddPossibleAnswer = (Button) findViewById(R.id.addQuestion_btnAddPossibleAnswer);
+        possibleAnswersContainer = (ViewGroup) findViewById(R.id.addQuestion_possibleAnswersContainer);
     }
 
     private void addEventListeners() {
@@ -62,6 +69,13 @@ public class AddQuestion extends AppCompatActivity {
                 showQuestionTypeLayout(multipleChoiceQuestionLayout);
             }
         });
+
+        btnAddPossibleAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addPossibleAnswerLayout();
+            }
+        });
     }
 
     /* Switches between the user input modes for a basic question or a multiple choice question */
@@ -70,5 +84,13 @@ public class AddQuestion extends AppCompatActivity {
         multipleChoiceQuestionLayout.setVisibility(View.GONE);
 
         layout.setVisibility(View.VISIBLE);
+    }
+
+    private void addPossibleAnswerLayout() {
+        /* Inflate a 'Possible Answer View' */
+        LayoutInflater inflater = getLayoutInflater();
+        View possibleAnswerView = inflater.inflate(R.layout.possible_answer_view, null);
+
+        possibleAnswersContainer.addView(possibleAnswerView, 0);
     }
 }

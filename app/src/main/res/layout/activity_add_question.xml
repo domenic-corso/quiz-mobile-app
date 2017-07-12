@@ -59,7 +59,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="match_parent"
@@ -86,7 +86,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
@@ -113,7 +113,7 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/addQuestion_btnNewPossibleAnswer"
+            android:id="@+id/addQuestion_btnAddPossibleAnswer"
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
