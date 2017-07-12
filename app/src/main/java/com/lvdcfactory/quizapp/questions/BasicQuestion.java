@@ -4,7 +4,7 @@ package com.lvdcfactory.quizapp.questions;
  * Created by LU-VUONG on 10-Jul-17.
  */
 
-public class BasicQuestion implements Question {
+public class BasicQuestion implements Question, java.io.Serializable {
 
         private String answerText;
         private String questionText;

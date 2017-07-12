@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Domenic on 10/07/2017.
  */
 
-public class MultipleChoiceQuestion implements Question {
+public class MultipleChoiceQuestion implements Question, java.io.Serializable {
 
     private String questionText;
     private List<MultipleChoiceAnswer> possibleAnswers;

@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by LU-VUONG on 10-Jul-17.
  */
 
-public class Quiz {
+public class Quiz implements java.io.Serializable {
 
     private String author;
     private String title;
