@@ -42,14 +42,25 @@ public class CreateQuiz extends AppCompatActivity {
     }
 
     private void showAddQuestionActivity() {
-        String author = quizAuthor.getText().toString();
-        String title = quizTitle.getText().toString();
-        String description = quizDescription.getText().toString();
+        if(checkEmptyString(quizTitle) == true && checkEmptyString(quizDescription) == true && checkEmptyString(quizAuthor) == true) {
+            String author = quizAuthor.getText().toString();
+            String title = quizTitle.getText().toString();
+            String description = quizDescription.getText().toString();
 
-        Quiz quiz = new Quiz(author, title, description);
+            Quiz quiz = new Quiz(author, title, description);
 
-        Intent intent = new Intent(CreateQuiz.this, AddQuestion.class);
-        intent.putExtra(QUIZ_EXTRA, quiz);
-        startActivity(intent);
+            Intent intent = new Intent(CreateQuiz.this, AddQuestion.class);
+            intent.putExtra(QUIZ_EXTRA, quiz);
+            startActivity(intent);
+        }
+    }
+
+    private boolean checkEmptyString(EditText input){
+        if(input.getText().toString().length() == 0){
+            input.setError("Field cannot be empty");
+            return false;
+        }else{
+            return true;
+        }
     }
 }
