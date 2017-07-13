@@ -95,6 +95,9 @@ public class AddQuestion extends AppCompatActivity {
         });
     }
 
+    public List<PossibleAnswerLayoutWrapper> getPossibleAnswerLayoutWrappers() {
+        return possibleAnswerLayoutWrappers;
+    }
 
     private ActiveQuestionType activeQuestionType() {
         if (basicQuestionLayout.getVisibility() == View.VISIBLE) {

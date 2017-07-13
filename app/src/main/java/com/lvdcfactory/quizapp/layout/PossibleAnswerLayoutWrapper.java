@@ -4,9 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.lvdcfactory.quizapp.AddQuestion;
+
+import java.util.List;
 
 /**
  * Created by Domenic on 12/07/2017.
@@ -29,8 +32,8 @@ public class PossibleAnswerLayoutWrapper {
         answerText = (EditText) parent.getChildAt(1);
         btnDelete = (Button) parent.getChildAt(2);
 
-        //Onclick listener
         btnDelete.setOnClickListener(new DeleteButtonClickedListener(this));
+        checkBox.setOnCheckedChangeListener(new CheckBoxChangedListener());
     }
 
     class DeleteButtonClickedListener implements View.OnClickListener {
@@ -44,6 +47,30 @@ public class PossibleAnswerLayoutWrapper {
         @Override
         public void onClick(View view) {
             addQuestionActivity.removePossibleAnswerLayout(wrapper);
+        }
+    }
+
+    class CheckBoxChangedListener implements CompoundButton.OnCheckedChangeListener{
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            /* Only proceed if the checked state is true */
+            if (!b) {
+                return;
+            }
+
+            /* Get all the other wrappers */
+            List<PossibleAnswerLayoutWrapper> otherWrappers = addQuestionActivity.getPossibleAnswerLayoutWrappers();
+
+            /* Loop through the other wrappers, make them all unchecked as long as they
+            are not the one that was recently checked (compoundButton which triggered this
+            event listener)
+             */
+            for (PossibleAnswerLayoutWrapper w : otherWrappers) {
+                if (w.getCheckBox() != compoundButton) {
+                    w.getCheckBox().setChecked(false);
+                }
+            }
         }
     }
 
