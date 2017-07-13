@@ -20,4 +20,11 @@
         android:layout_height="85dp"
         android:text="VIEW YOUR QUIZZES"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnDev"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:text="DEV"
+        android:textSize="18sp" />
 </LinearLayout>

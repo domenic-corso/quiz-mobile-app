@@ -130,7 +130,7 @@ public class AddQuestion extends AppCompatActivity {
         return possibleAnswerLayoutWrappers;
     }
 
-    private void showQuizSummaryActivity(){
+    private void showQuizSummaryActivity() {
         Intent intent = new Intent(AddQuestion.this, QuizSummary.class);
         intent.putExtra(CreateQuiz.QUIZ_EXTRA, newlyCreatedQuiz);
         startActivity(intent);
