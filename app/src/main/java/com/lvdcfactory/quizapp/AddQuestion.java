@@ -110,6 +110,8 @@ public class AddQuestion extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 insertIntoQuiz();
+                showQuizSummaryActivity();
+
             }
         });
 
@@ -125,6 +127,12 @@ public class AddQuestion extends AppCompatActivity {
 
     public List<PossibleAnswerLayoutWrapper> getPossibleAnswerLayoutWrappers() {
         return possibleAnswerLayoutWrappers;
+    }
+
+    private void showQuizSummaryActivity(){
+        Intent intent = new Intent(AddQuestion.this, QuizSummary.class);
+        intent.putExtra(CreateQuiz.QUIZ_EXTRA, newlyCreatedQuiz);
+        startActivity(intent);
     }
 
     private ActiveQuestionType activeQuestionType() {
