@@ -9,8 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
+import com.lvdcfactory.quizapp.questions.BasicQuestion;
+import com.lvdcfactory.quizapp.questions.MultipleChoiceAnswer;
+import com.lvdcfactory.quizapp.questions.MultipleChoiceQuestion;
 import com.lvdcfactory.quizapp.quiz.Quiz;
 
 import java.util.ArrayList;
@@ -20,7 +24,8 @@ public class AddQuestion extends AppCompatActivity {
 
     private Quiz newlyCreatedQuiz;
 
-    private Button btnBasicQuestion, btnMultipleChoiceQuestion;
+    private Button btnBasicQuestion, btnMultipleChoiceQuestion, btnFinished, btnAddAnother;
+    private EditText editTextBasicQuestion, editTextBasicQuestionAnswer;
     private ViewGroup basicQuestionLayout, multipleChoiceQuestionLayout;
     enum ActiveQuestionType {
         BASIC,
@@ -69,6 +74,12 @@ public class AddQuestion extends AppCompatActivity {
 
         btnAddPossibleAnswer = (Button) findViewById(R.id.addQuestion_btnAddPossibleAnswer);
         possibleAnswerLayoutsContainer = (ViewGroup) findViewById(R.id.addQuestion_possibleAnswersContainer);
+
+        editTextBasicQuestion = (EditText) findViewById(R.id.addQuestion_editTextQuestion);
+        editTextBasicQuestionAnswer = (EditText) findViewById(R.id.addQuestion_editTextBasicQuestionAnswer);
+
+        btnFinished = (Button) findViewById(R.id.addQuestion_btnFinished);
+        btnAddAnother = (Button) findViewById(R.id.addQuestion_btnAddAnother);
     }
 
     private void addEventListeners() {
@@ -94,6 +105,22 @@ public class AddQuestion extends AppCompatActivity {
                 addPossibleAnswerLayout();
             }
         });
+
+        btnFinished.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                insertIntoQuiz();
+            }
+        });
+
+        btnAddAnother.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                insertIntoQuiz();
+            }
+        });
+
+
     }
 
     public List<PossibleAnswerLayoutWrapper> getPossibleAnswerLayoutWrappers() {
@@ -110,6 +137,33 @@ public class AddQuestion extends AppCompatActivity {
         }
 
         return ActiveQuestionType.NONE;
+    }
+
+    private void insertIntoQuiz() {
+        String questionText = editTextBasicQuestion.getText().toString();
+        if (activeQuestionType() == ActiveQuestionType.BASIC) {
+            String answerText = editTextBasicQuestionAnswer.getText().toString();
+
+            BasicQuestion question = new BasicQuestion(questionText, answerText);
+            newlyCreatedQuiz.addQuestion(question);
+
+        } else {
+            return;
+        }
+
+        if (activeQuestionType() == ActiveQuestionType.MULTIPLE_CHOICE) {
+            List<PossibleAnswerLayoutWrapper> wrappers = this.getPossibleAnswerLayoutWrappers();
+
+            MultipleChoiceQuestion mc = new MultipleChoiceQuestion(questionText);
+
+            for (PossibleAnswerLayoutWrapper w : wrappers) {
+                mc.addAnswer(w.getAnswerText().toString());
+            }
+
+            newlyCreatedQuiz.addQuestion(mc);
+        } else {
+            return;
+        }
     }
 
     /* Switches between the user input modes for a basic question or a multiple choice question */

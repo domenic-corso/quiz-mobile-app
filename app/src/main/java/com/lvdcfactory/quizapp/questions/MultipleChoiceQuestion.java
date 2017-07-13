@@ -1,5 +1,7 @@
 package com.lvdcfactory.quizapp.questions;
 
+import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +45,7 @@ public class MultipleChoiceQuestion implements Question, java.io.Serializable {
     }
 
     public void addAnswer(String answerText) {
-
+        possibleAnswers.add(new MultipleChoiceAnswer(answerText));
     }
 
     public void addAnswer(MultipleChoiceAnswer answer) {
