@@ -9,6 +9,21 @@
     tools:context="com.lvdcfactory.quizapp.CreateQuiz">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="85dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="10dp"
+        android:text="Author" />
+
+    <EditText
+        android:id="@+id/createQuiz_editTextAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="52dp"
         android:layout_height="27dp"
         android:text="Title" />
@@ -17,7 +32,8 @@
         android:id="@+id/createQuiz_editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Quiz Title" />
+        android:hint="Enter Quiz Title"
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="85dp"
@@ -28,21 +44,10 @@
     <EditText
         android:id="@+id/createQuiz_editTextDesc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:hint="Enter Quiz Description"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:layout_width="85dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="10dp"
-        android:text="Author" />
-
-    <EditText
-        android:id="@+id/createQuiz_editTextAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Name" />
+        android:inputType="textMultiLine"
+        android:gravity="top"/>
 
     <Button
         android:id="@+id/createQuiz_btnCreateQuizContinue"
