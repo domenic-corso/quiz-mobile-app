@@ -53,7 +53,12 @@ public class MultipleChoiceQuestion implements Question, java.io.Serializable {
     }
 
     public void setCorrectAnswer(MultipleChoiceAnswer answer) {
-        // TODO Ensure the answer exists in possibleAnswers
-        correctAnswer = answer;
+        for(MultipleChoiceAnswer multipleCAnswer: possibleAnswers) {
+            if(multipleCAnswer == possibleAnswers){
+                correctAnswer = answer;
+            }else{
+                correctAnswer = possibleAnswers.get(0);
+            }
+        }
     }
 }

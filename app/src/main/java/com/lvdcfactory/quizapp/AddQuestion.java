@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
@@ -163,9 +164,14 @@ public class AddQuestion extends AppCompatActivity {
             List<PossibleAnswerLayoutWrapper> wrappers = this.getPossibleAnswerLayoutWrappers();
 
             MultipleChoiceQuestion mc = new MultipleChoiceQuestion(questionText);
+            MultipleChoiceAnswer multipleCAnswer;
 
             for (PossibleAnswerLayoutWrapper w : wrappers) {
-                mc.addAnswer(w.getAnswerText().toString());
+                multipleCAnswer = new MultipleChoiceAnswer(w.getAnswerText().toString());
+
+                mc.addAnswer(multipleCAnswer);
+
+                if(w.getCheckBox().isChecked()){ mc.setCorrectAnswer(multipleCAnswer); }
             }
 
             newlyCreatedQuiz.addQuestion(mc);
