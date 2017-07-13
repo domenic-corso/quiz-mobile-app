@@ -8,71 +8,200 @@
     android:layout_margin="20dp"
     tools:context="com.lvdcfactory.quizapp.QuizSummary">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="52dp"
-        android:layout_height="27dp"
-        android:text="Title" />
-
-    <TextView
-        android:id="@+id/quizSummary_textViewTitle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:background="@drawable/border" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="75dp"
-        android:layout_height="27dp"
-        android:text="Description" />
-
-    <TextView
-        android:id="@+id/quizSummary_textViewDesc"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/border" />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="52dp"
-        android:layout_height="27dp"
-        android:text="Author" />
-
-    <TextView
-        android:id="@+id/quizSummary_textViewAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:background="@drawable/border" />
-
-    <LinearLayout
-        android:id="@+id/quizSummary_layout_bottomButtons"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/quizSummary_btnStartTest"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.82"
-            android:background="#99D5CA"
-            android:text="Start Test" />
-
-        <Space
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.47" />
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/quizSummary_btnExport"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="#99D5CA"
-            android:text="Export" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Title"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/quizSummary_textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Author"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/quizSummary_textViewAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Description"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/quizSummary_textViewDesc"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_marginTop="10dp"
+                android:text="Questions"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="What is the capital city of Australia?"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="ANSWER"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Canberra"
+                    android:padding="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:paddingLeft="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="What is Linux?"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="ANSWERS"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Application"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_red_dark" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Programming Language"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_red_dark" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Operating System"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_green_dark" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/quizSummary_btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="#99D5CA"
+                    android:text="Save" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.47" />
+
+                <Button
+                    android:id="@+id/quizSummary_btnStartTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.82"
+                    android:background="#99D5CA"
+                    android:text="Start Test" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.widget.LinearLayout>
