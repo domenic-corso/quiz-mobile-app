@@ -141,13 +141,13 @@ public class AddQuestion extends AppCompatActivity {
 
     private void insertIntoQuiz() {
         String questionText = editTextBasicQuestion.getText().toString();
+
         if (activeQuestionType() == ActiveQuestionType.BASIC) {
             String answerText = editTextBasicQuestionAnswer.getText().toString();
 
             BasicQuestion question = new BasicQuestion(questionText, answerText);
             newlyCreatedQuiz.addQuestion(question);
 
-        } else {
             return;
         }
 
@@ -161,7 +161,7 @@ public class AddQuestion extends AppCompatActivity {
             }
 
             newlyCreatedQuiz.addQuestion(mc);
-        } else {
+
             return;
         }
     }
