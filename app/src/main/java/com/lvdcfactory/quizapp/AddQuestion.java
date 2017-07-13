@@ -141,6 +141,9 @@ public class AddQuestion extends AppCompatActivity {
 
         /* Add to beginning of the container (with index 0) */
         possibleAnswerLayoutsContainer.addView(wrapper.getParent(), 0);
+
+        /* Get the EditText From the wrapper and request focus after add */
+        wrapper.getAnswerText().requestFocus();
     }
 
     public void removePossibleAnswerLayout(PossibleAnswerLayoutWrapper wrapper) {
