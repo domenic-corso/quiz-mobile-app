@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:text="Default Author" />
 
     <TextView
         android:id="@+id/textView2"
@@ -33,7 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Quiz Title"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:text="Default Title" />
 
     <TextView
         android:layout_width="85dp"
@@ -45,9 +47,10 @@
         android:id="@+id/createQuiz_editTextDesc"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:gravity="top"
         android:hint="Enter Quiz Description"
         android:inputType="textMultiLine"
-        android:gravity="top"/>
+        android:text="Default Description" />
 
     <Button
         android:id="@+id/createQuiz_btnCreateQuizContinue"

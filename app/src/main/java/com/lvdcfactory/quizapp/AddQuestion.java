@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
@@ -120,6 +118,7 @@ public class AddQuestion extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 insertIntoQuiz();
+                clearInput();
             }
         });
 
@@ -149,7 +148,7 @@ public class AddQuestion extends AppCompatActivity {
     }
 
     private void insertIntoQuiz() {
-        // TODO Don't add to quiz if there are no question or answer(s)
+        // TODO Don't add to quiz if there are no question or answer(s) AND at least one multiple choice answer is selected
         String questionText = editTextBasicQuestion.getText().toString();
 
         if (activeQuestionType() == ActiveQuestionType.BASIC) {
@@ -179,6 +178,15 @@ public class AddQuestion extends AppCompatActivity {
 
             return;
         }
+    }
+
+    private void clearInput() {
+        basicQuestionLayout.callOnClick();
+
+        editTextBasicQuestion.setText("");
+        editTextBasicQuestionAnswer.setText("");
+        possibleAnswerLayoutsContainer.removeAllViews();
+        possibleAnswerLayoutWrappers = new ArrayList<>();
     }
 
     /* Switches between the user input modes for a basic question or a multiple choice question */
