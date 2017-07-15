@@ -149,6 +149,7 @@ public class AddQuestion extends AppCompatActivity {
     }
 
     private void insertIntoQuiz() {
+        // TODO Don't add to quiz if there are no question or answer(s)
         String questionText = editTextBasicQuestion.getText().toString();
 
         if (activeQuestionType() == ActiveQuestionType.BASIC) {
@@ -167,7 +168,7 @@ public class AddQuestion extends AppCompatActivity {
             MultipleChoiceAnswer multipleCAnswer;
 
             for (PossibleAnswerLayoutWrapper w : wrappers) {
-                multipleCAnswer = new MultipleChoiceAnswer(w.getAnswerText().toString());
+                multipleCAnswer = new MultipleChoiceAnswer(w.getAnswerText().getText().toString());
 
                 mc.addAnswer(multipleCAnswer);
 

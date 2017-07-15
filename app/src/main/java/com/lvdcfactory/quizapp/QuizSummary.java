@@ -3,8 +3,11 @@ package com.lvdcfactory.quizapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.lvdcfactory.quizapp.layout.QuestionSummaryLayoutWrapper;
+import com.lvdcfactory.quizapp.questions.Question;
 import com.lvdcfactory.quizapp.quiz.Quiz;
 
 public class QuizSummary extends AppCompatActivity {
@@ -12,6 +15,7 @@ public class QuizSummary extends AppCompatActivity {
     private Quiz newlyCreatedQuiz;
 
     private TextView tvTitle, tvAuthor, tvDesc;
+    private ViewGroup questionsContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +43,26 @@ public class QuizSummary extends AppCompatActivity {
         tvAuthor.setText(newlyCreatedQuiz.getAuthor());
         tvDesc.setText(newlyCreatedQuiz.getDescription());
 
+        showQuestions();
+
     }
 
     private void findViews() {
         tvTitle = (TextView) findViewById(R.id.quizSummary_textViewTitle);
         tvAuthor = (TextView) findViewById(R.id.quizSummary_textViewAuthor);
         tvDesc = (TextView) findViewById(R.id.quizSummary_textViewDesc);
+        questionsContainer = (ViewGroup) findViewById(R.id.quizSummary_questionsContainer);
     }
 
     private void addListeners() {
 
+    }
+
+    private void showQuestions() {
+        QuestionSummaryLayoutWrapper wrapper;
+        for (Question q : newlyCreatedQuiz.getQuestions()) {
+            wrapper = new QuestionSummaryLayoutWrapper(this, q, questionsContainer);
+            questionsContainer.addView(wrapper.getParent());
+        }
     }
 }
