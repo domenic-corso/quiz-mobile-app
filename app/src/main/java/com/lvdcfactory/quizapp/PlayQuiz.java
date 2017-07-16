@@ -2,10 +2,13 @@ package com.lvdcfactory.quizapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class PlayQuiz extends AppCompatActivity {
 
@@ -21,15 +24,31 @@ public class PlayQuiz extends AppCompatActivity {
 
         findViews();
         addListeners();
+        radioGroupMPA.setOnClickListener(new RadioButtonOnClicked());
     }
 
     private void addListeners() {
-        // TODO add listeners for submit button
+        btnSubmitQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void findViews() {
-        // TODO find these views
+        textViewQuestion = (TextView) findViewById(R.id.playQuiz_textVIewQuestion);
+        layoutBasicQuestion = (ViewGroup) findViewById(R.id.playQuiz_layoutBasicQuestion);
+        layoutMultipleChoice = (ViewGroup) findViewById(R.id.playQuiz_layoutMultipleChoice);
+        radioGroupMPA = (RadioGroup) findViewById(R.id.playQuiz_radioGroupMPA);
+        btnSubmitQuestion = (Button) findViewById(R.id.playQuiz_btnSubmitAnswer);
     }
 
-    // TODO create event listener for the MPA radio buttons (inner class)
+    class RadioButtonOnClicked implements  View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+
+        }
+    }
 }
