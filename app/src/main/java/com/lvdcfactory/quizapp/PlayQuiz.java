@@ -1,10 +1,13 @@
 package com.lvdcfactory.quizapp;
 
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -24,7 +27,6 @@ public class PlayQuiz extends AppCompatActivity {
 
         findViews();
         addListeners();
-        radioGroupMPA.setOnClickListener(new RadioButtonOnClicked());
     }
 
     private void addListeners() {
@@ -44,10 +46,10 @@ public class PlayQuiz extends AppCompatActivity {
         btnSubmitQuestion = (Button) findViewById(R.id.playQuiz_btnSubmitAnswer);
     }
 
-    class RadioButtonOnClicked implements  View.OnClickListener {
+    class RadioCheckedListener implements RadioButton.OnCheckedChangeListener {
 
         @Override
-        public void onClick(View view) {
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
         }
     }
