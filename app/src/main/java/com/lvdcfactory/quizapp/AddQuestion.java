@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
 import com.lvdcfactory.quizapp.other.GeneralValidation;
@@ -110,8 +111,10 @@ public class AddQuestion extends AppCompatActivity {
         btnFinished.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                insertIntoQuiz();
-                showQuizSummaryActivity();
+                if (isBasicQuestionAnswerValid() || isMCQuestionAnswerValid()) {
+                    insertIntoQuiz();
+                    showQuizSummaryActivity();
+                }
 
             }
         });
@@ -125,6 +128,57 @@ public class AddQuestion extends AppCompatActivity {
         });
 
 
+    }
+
+    private boolean isBasicQuestionAnswerValid() {
+        String questionText = editTextBasicQuestion.getText().toString();
+        String answerText = editTextBasicQuestionAnswer.getText().toString();
+
+        if(!questionText.isEmpty() && !answerText.isEmpty()) {
+            return true;
+        }else {
+            if (questionText.isEmpty()) {
+                createToast("Question cant be empty");
+            }
+            if (activeQuestionType() == ActiveQuestionType.BASIC) {
+                if (answerText.isEmpty()) {
+                    createToast("Answer cant be empty");
+                }
+            }
+            return false;
+        }
+    }
+
+    private boolean isMCQuestionAnswerValid() {
+        List<PossibleAnswerLayoutWrapper> wrappers = this.getPossibleAnswerLayoutWrappers();
+        String questionText = editTextBasicQuestion.getText().toString();
+        int numOfQuestions = 0;
+        boolean isChecked = false;
+        boolean answerEmpty = false;
+
+        for (PossibleAnswerLayoutWrapper w : wrappers) {
+            numOfQuestions++;
+            if (w.getAnswerText().getText().toString().isEmpty()) {
+                answerEmpty = true;
+            }
+            if (w.getCheckBox().isChecked()) {
+                isChecked = true;
+            }
+        }
+        if (!questionText.isEmpty() && numOfQuestions >= 2 && isChecked == true && !answerEmpty) {
+            return true;
+        } else {
+            if (activeQuestionType() == ActiveQuestionType.MULTIPLE_CHOICE) {
+                if (numOfQuestions < 2) {
+                    createToast("Must be two or more questions");
+                } else if (!isChecked) {
+                    createToast("One answer must be checked");
+                } else if (answerEmpty) {
+                    createToast("Answer cannot be blank");
+                }
+            }
+            return false;
+        }
     }
 
     public List<PossibleAnswerLayoutWrapper> getPossibleAnswerLayoutWrappers() {
@@ -150,38 +204,44 @@ public class AddQuestion extends AppCompatActivity {
     }
 
     private void insertIntoQuiz() {
-        // TODO Don't add to quiz if there are no question or answer(s) AND at least one multiple choice answer is selected
         String questionText = editTextBasicQuestion.getText().toString();
-
-        if (activeQuestionType() == ActiveQuestionType.BASIC) {
-            String answerText = editTextBasicQuestionAnswer.getText().toString();
-
-            BasicQuestion question = new BasicQuestion(questionText, answerText);
-            newlyCreatedQuiz.addQuestion(question);
-
-            return;
-        }
-
-        if (activeQuestionType() == ActiveQuestionType.MULTIPLE_CHOICE) {
-            List<PossibleAnswerLayoutWrapper> wrappers = this.getPossibleAnswerLayoutWrappers();
-
-            MultipleChoiceQuestion mc = new MultipleChoiceQuestion(questionText);
-            MultipleChoiceAnswer multipleCAnswer;
-
-            for (PossibleAnswerLayoutWrapper w : wrappers) {
-                multipleCAnswer = new MultipleChoiceAnswer(w.getAnswerText().getText().toString());
-
-                mc.addAnswer(multipleCAnswer);
-
-                if(w.getCheckBox().isChecked()){ mc.setCorrectAnswer(multipleCAnswer); }
+        if (!questionText.isEmpty()) {
+            if (activeQuestionType() == ActiveQuestionType.BASIC) {
+                String answerText = editTextBasicQuestionAnswer.getText().toString();
+                if (!answerText.isEmpty()) {
+                    BasicQuestion question = new BasicQuestion(questionText, answerText);
+                    newlyCreatedQuiz.addQuestion(question);
+                    return;
+                }
             }
 
-            newlyCreatedQuiz.addQuestion(mc);
+            if (activeQuestionType() == ActiveQuestionType.MULTIPLE_CHOICE) {
+                List<PossibleAnswerLayoutWrapper> wrappers = this.getPossibleAnswerLayoutWrappers();
 
-            return;
+                MultipleChoiceQuestion mc = new MultipleChoiceQuestion(questionText);
+                MultipleChoiceAnswer multipleCAnswer;
+
+                for (PossibleAnswerLayoutWrapper w : wrappers) {
+                    multipleCAnswer = new MultipleChoiceAnswer(w.getAnswerText().getText().toString());
+
+                    mc.addAnswer(multipleCAnswer);
+
+                    if (w.getCheckBox().isChecked()) {
+                        mc.setCorrectAnswer(multipleCAnswer);
+                    }
+                }
+
+                newlyCreatedQuiz.addQuestion(mc);
+
+                return;
+            }
         }
     }
 
+    private void createToast(String toastText) {
+        Toast toast = Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT);
+        toast.show();
+    }
     private void clearInput() {
         basicQuestionLayout.callOnClick();
 
