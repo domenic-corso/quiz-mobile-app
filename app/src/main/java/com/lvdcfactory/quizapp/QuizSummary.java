@@ -1,17 +1,30 @@
 package com.lvdcfactory.quizapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
 import com.lvdcfactory.quizapp.layout.QuestionSummaryLayoutWrapper;
 import com.lvdcfactory.quizapp.questions.Question;
 import com.lvdcfactory.quizapp.quiz.Quiz;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 
 public class QuizSummary extends AppCompatActivity {
 
@@ -70,9 +83,45 @@ public class QuizSummary extends AppCompatActivity {
         btnSaveTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO write code to export quiz to a file
+                exportQuiz();
+                readQuiz();
             }
         });
+    }
+
+    private void exportQuiz() {
+        // Should prompt user to enter a name
+        String filename = "quiz";
+        ObjectOutput output;
+
+        try {
+            output = new ObjectOutputStream(new FileOutputStream(getFilesDir() + File.separator+filename));
+            output.writeObject(newlyCreatedQuiz);
+            output.close();
+            Toast toast = Toast.makeText(getApplicationContext(), "Quiz Saved", Toast.LENGTH_SHORT);
+            toast.show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readQuiz() {
+        ObjectInputStream input;
+        String filename = "quiz";
+
+        try {
+            input = new ObjectInputStream(new FileInputStream(getFilesDir() + File.separator+filename));
+            Quiz myQuiz = (Quiz) input.readObject();
+            Log.v("Reading From File", "Quiz Questions="+myQuiz.getQuestions());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showStartTestActivity() {
