@@ -15,18 +15,19 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CreateQuiz"
             android:label="@string/create_quiz_name" />
         <activity
             android:name=".AddQuestion"
             android:label="Add Question"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".QuizSummary"
-            android:label="Quiz Summary"></activity>
+            android:label="Quiz Summary" />
+        <activity android:name=".PlayQuiz"></activity>
     </application>
 
 </manifest>

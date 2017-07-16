@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.lvdcfactory.quizapp.layout.PossibleAnswerLayoutWrapper;
+import com.lvdcfactory.quizapp.other.GeneralValidation;
 import com.lvdcfactory.quizapp.questions.BasicQuestion;
 import com.lvdcfactory.quizapp.questions.MultipleChoiceAnswer;
 import com.lvdcfactory.quizapp.questions.MultipleChoiceQuestion;
+import com.lvdcfactory.quizapp.questions.QuestionValidation;
 import com.lvdcfactory.quizapp.quiz.Quiz;
 
 import java.util.ArrayList;

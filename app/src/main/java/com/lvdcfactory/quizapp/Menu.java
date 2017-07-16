@@ -50,6 +50,10 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void _testShowPlayQuiz() {
+        startActivity(new Intent(getBaseContext(), PlayQuiz.class));
+    }
+
     private void findViews() {
         btnCreateQuiz = (Button) findViewById(R.id.menu_btnCreateQuiz);
         btnViewYourQuizzes = (Button) findViewById(R.id.menu_btnViewYourQuizzes);
@@ -75,7 +79,8 @@ public class Menu extends AppCompatActivity {
         btnDev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _testQuizSummary();
+                //_testQuizSummary();
+                _testShowPlayQuiz();
             }
         });
 
